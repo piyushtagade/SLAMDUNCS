@@ -27,7 +27,7 @@ mxl = 100
 # Training the rbm for unsupervised learning of molecular structures
 # -----------------------------------------------------------------------------
 pubchem_data_filename = 'Molecular_data_pubchem'
-train_rbm(pubchem_data_filename, max_smiles_length=100)
+#train_rbm(pubchem_data_filename, max_smiles_length=100)
 with open('rbm_trained.pkl', 'rb') as fp:
     rbm = pickle.load(fp)
 # -----------------------------------------------------------------------------
@@ -36,8 +36,8 @@ with open('rbm_trained.pkl', 'rb') as fp:
 # correlation
 # -----------------------------------------------------------------------------
 properties_data_filename = 'IQR_screened_redox_homolumo'
-train_dnn(pubchem_data_filename, properties_data_filename, 
-              max_smiles_length=100)
+#train_dnn(pubchem_data_filename, properties_data_filename, 
+#              max_smiles_length=100)
 
 with open('dnn_trained.pkl', 'rb') as fp:
     dnn = pickle.load(fp)
@@ -54,26 +54,25 @@ pah_smiles = []
 fixed_smiles = [] 
 copy_loc_indes = [] 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 # Some sample smiles for initialization of Markov Chain
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 pah_smiles.append('C1=CC2=C3C(=CC=C4C3=C1C5=C6C4=CC=C7C6=C(C=C5)C(=O)NC7=O)C(=O)NC2=O')
 pah_smiles.append('O=C1NC(=O)C2=C3C1=CC=C1C(=O)NC(=O)C(C=C2)=C31')
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 # Number of chains to run
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 num_parallel_chains = 5000 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 # Randomly creating initial state of the Markov Chain
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------
 ini_smiles = []
 fixed_smiles_index = []
 copy_loc_index = []  
 for par in range(0, num_parallel_chains):
-    if np.random.random(1) > 0.05:
+    if np.random.random(1) > 0.0:
        i_pah = np.random.choice(len(pah_smiles), 1)[0]
-       
        #i_pah = 0
        if i_pah < 0:
            if np.random.random(1) > 0.05:
@@ -114,7 +113,7 @@ for par in range(0, num_parallel_chains):
                    updated_smiles, fixed_index, copy_loc = initialize_smiles_dimer(pah_smiles[0], symmetry=False, add_side = 2, rings=2)
  
     else: 
-        if np.random.rand(1) > 0.5: 
+        if np.random.rand(1) > 0.0: 
            i_pah = np.random.choice(len(indx_lumo), 1)[0]
            print(i_pah)
            updated_smiles, fixed_index, copy_loc = initialize_smiles(smiles1[indx_lumo[i_pah]], symmetry=False, side_add = 'both')
