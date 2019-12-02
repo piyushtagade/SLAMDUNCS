@@ -31,7 +31,7 @@ def train_rbm(pubchem_data_filename, max_smiles_length=100):
 # -----------------------------------------------------------------------------
     [num_data, num_vis] = np.shape(training_data) 
 
-    num_test_data = np.shape(test_set_all)[0]
+    num_test_data = np.shape(test_set_redox)[0]
 # -----------------------------------------------------------------------------
 # Creating an instance of the RBM class 
 # -----------------------------------------------------------------------------                                  

@@ -69,7 +69,7 @@ def train_dnn(pubchem_data_filename, properties_data_filename,
     num_targ = np.shape(training_target)[1]
 
     print(num_vis, num_targ)
-    #num_hid = int(np.floor(num_vis*vishid_ratio))
+    num_hid = int(np.floor(num_vis*vishid_ratio))
 
     [num_data, num_vis] = np.shape(training_data)  
 
