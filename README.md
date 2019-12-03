@@ -3,7 +3,7 @@
 This repository contains codes for a deep learning inverse prediction framework "SLAMDUNCS: Structure Learning for Attribute-driven Materials Design Using Novel Conditional Sampling (SLAMDUNCS)" for efficient and accurate prediction of molecules exhibiting target properties. Databases used for training and testing the framework are also made available in this repository. 
 
 Details of the methodology and the results are presented in a publication: "A deep learning Bayesian framework for attribute driven inverse materials design". 
-
+ 
 
 Steps for code usage:
 1) Run bayes_pubchem.py
